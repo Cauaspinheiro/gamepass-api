@@ -1,4 +1,4 @@
-import { MongoClient, MongoClientOptions } from 'mongodb'
+import { Db, MongoClient, MongoClientOptions } from 'mongodb'
 
 const { MONGODB_URI, MONGODB_DB } = process.env
 
@@ -14,17 +14,19 @@ if (!MONGODB_DB) {
   )
 }
 
-let cachedClient: MongoClient
+let cachedDb: Db
 
-export async function connectToDatabase(): Promise<MongoClient> {
-  if (cachedClient) return cachedClient
+export async function connectToDatabase(): Promise<Db> {
+  if (cachedDb) return cachedDb
 
   const opts: MongoClientOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 
-  cachedClient = await MongoClient.connect(MONGODB_URI, opts)
+  const client = await MongoClient.connect(MONGODB_URI, opts)
 
-  return cachedClient
+  cachedDb = client.db(MONGODB_DB)
+
+  return cachedDb
 }
