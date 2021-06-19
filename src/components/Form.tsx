@@ -1,19 +1,12 @@
 import React, { FormEvent, useState } from 'react'
 
-export interface GameData {
-  title: string
-  logo: string
-  trailer: string
-  description: string
-  rating: string
-  reasons: string
-  size: string
-  publisher: string
-}
+import { Game } from '../entities/game'
+import { Rating } from '../entities/rating'
 
 export interface FormProps {
   // eslint-disable-next-line no-unused-vars
-  handleSubmit(data: GameData): void
+  handleSubmit(data: Game): void
+  ratings: Rating[]
 }
 
 const Form: React.FC<FormProps> = (props) => {
@@ -21,7 +14,7 @@ const Form: React.FC<FormProps> = (props) => {
   const [logo, setLogo] = useState('')
   const [trailer, setTrailer] = useState('')
   const [description, setDescription] = useState('')
-  const [rating, setRating] = useState('L')
+  const [rating, setRating] = useState(props.ratings[0]._id)
   const [reasons, setReasons] = useState('')
   const [size, setSize] = useState('')
   const [publisher, setPublisher] = useState('')
@@ -35,7 +28,7 @@ const Form: React.FC<FormProps> = (props) => {
       trailer,
       description,
       rating,
-      reasons,
+      rating_reasons: reasons,
       size,
       publisher,
     }
@@ -96,8 +89,11 @@ const Form: React.FC<FormProps> = (props) => {
           value={rating}
           onChange={(e) => setRating(e.target.value)}
         >
-          <option value="L">L</option>
-          <option value="18">18</option>
+          {props.ratings.map((value) => (
+            <option key={value._id} value={value._id}>
+              {value.age}
+            </option>
+          ))}
         </select>
       </div>
 
