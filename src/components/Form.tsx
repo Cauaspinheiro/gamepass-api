@@ -51,24 +51,12 @@ const Form: React.FC<FormProps> = (props) => {
     <form onSubmit={onSubmit}>
       <Input label="Title" name="title" value={title} onChangeText={setTitle} />
 
-      <Input label="Logo" name="logo" value={logo} onChangeText={setLogo} />
-
       <Input
-        label="Trailer"
-        name="trailer"
-        value={trailer}
-        onChangeText={setTrailer}
+        label="Publisher"
+        name="publisher"
+        value={publisher}
+        onChangeText={setPublisher}
       />
-
-      <div className="input-container">
-        <label htmlFor="description">Description</label>
-
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
 
       <div className="input-container">
         <label htmlFor="rating">Age Rating</label>
@@ -94,14 +82,26 @@ const Form: React.FC<FormProps> = (props) => {
         placeholder="Separated by ,"
       />
 
-      <Input label="Size" name="size" value={size} onChangeText={setSize} />
+      <Input label="Logo" name="logo" value={logo} onChangeText={setLogo} />
+
+      <div className="input-container">
+        <label htmlFor="description">Description</label>
+
+        <textarea
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
 
       <Input
-        label="Publisher"
-        name="publisher"
-        value={publisher}
-        onChangeText={setPublisher}
+        label="Trailer"
+        name="trailer"
+        value={trailer}
+        onChangeText={setTrailer}
       />
+
+      <Input label="Size" name="size" value={size} onChangeText={setSize} />
 
       <button type="submit">SUBMIT</button>
     </form>
