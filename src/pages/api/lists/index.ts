@@ -1,15 +1,12 @@
 import { NextApiHandler } from 'next'
 
-import { connectToDatabase } from '../../../database/connection'
+import GetGamesListsUseCase from 'app/games_list/get_games_lists'
+import GamesListView from 'infra/games_list/games_list_view'
 
 const GamesListsRequestHandler: NextApiHandler = async (_, res) => {
-  const db = await connectToDatabase()
+  const gamesLists = await GetGamesListsUseCase()
 
-  const gamesListsCollection = db.collection('games_list_view')
-
-  const games_lists = await gamesListsCollection.find().toArray()
-
-  const response = JSON.parse(JSON.stringify(games_lists))
+  const response = gamesLists.map((value) => GamesListView.toJSON(value))
 
   return res.json(response)
 }

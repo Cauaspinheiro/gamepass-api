@@ -1,26 +1,14 @@
-import { ObjectId } from 'mongodb'
 import { NextApiHandler } from 'next'
 
-import { connectToDatabase } from '../../../database/connection'
+import GetGameByIdUseCase from 'app/game/get_game_by_id'
+import GameView from 'infra/game/game_view'
 
 const GameByIdRequestHandler: NextApiHandler = async (req, res) => {
-  const db = await connectToDatabase()
+  const game = await GetGameByIdUseCase(req.query.id.toString())
 
-  const { id: gameId } = req.query
+  const response = GameView.toJSON(game)
 
-  const gamesCollection = db.collection('games_view')
-
-  try {
-    const game = await gamesCollection.findOne({
-      _id: new ObjectId(gameId as string),
-    })
-
-    return res.json(game)
-  } catch (error) {
-    const response = { error: 'INVALID ID', details: error.toString() }
-
-    return res.status(400).json(response)
-  }
+  return res.json(response)
 }
 
 export default GameByIdRequestHandler

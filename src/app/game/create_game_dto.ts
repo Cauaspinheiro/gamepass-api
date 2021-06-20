@@ -1,10 +1,10 @@
-export interface Game {
+export default interface CreateGameDTO {
   title: string
   logo: string
   trailer: string
   description: string
-  rating: string
-  rating_reasons: string
+  rating_id: string
+  rating_reasons: string[]
   size: string
   publisher: string
 }

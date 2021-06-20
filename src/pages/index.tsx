@@ -2,10 +2,10 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import Form from '../components/Form'
-import { Game } from '../entities/game'
-import { Rating } from '../entities/rating'
-import GetRatingsUseCase from '../use-cases/rating/get_ratings'
+import GetRatingsUseCase from '../app/rating/get_ratings'
+import Form, { GameFormData } from '../components/Form'
+import CreateGameDTO from 'app/game/create_game_dto'
+import Rating from 'domain/rating'
 
 export interface HomePageProps {
   ratings: Rating[]
@@ -14,10 +14,16 @@ export interface HomePageProps {
 const HomePage: FC<HomePageProps> = (props) => {
   const router = useRouter()
 
-  const handleSubmit = async (data: Game) => {
-    const ratingsReasons = data.rating_reasons.split(', ').join(',').split(',')
+  const handleSubmit = async (data: GameFormData) => {
+    const ratingsReasons = data.rating_reasons
+      .split(',')
+      .map((value) => value.trim())
 
-    const requestData = { ...data, rating_reasons: ratingsReasons }
+    const requestData: CreateGameDTO = {
+      ...data,
+      rating_reasons: ratingsReasons,
+      rating_id: data.rating,
+    }
 
     const response = await fetch('http://localhost:3000/api/games', {
       method: 'POST',

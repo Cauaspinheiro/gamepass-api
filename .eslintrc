@@ -8,7 +8,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    "no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "error",
     "no-console": "error",
     "import/no-anonymous-default-export": "off",
 
@@ -16,7 +16,18 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", ["parent", "sibling", "index"]],
+        "groups": [
+          "module",
+          [
+            "/app/",
+            "/components/",
+            "/domain/",
+            "/infra/",
+            "/pages/",
+            "/styles/"
+          ],
+          ["parent", "sibling", "index"]
+        ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]

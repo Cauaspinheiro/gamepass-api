@@ -16,7 +16,7 @@ if (!MONGODB_DB) {
 
 let cachedDb: Db
 
-export async function connectToDatabase(): Promise<Db> {
+export default async function connectToDatabase(): Promise<Db> {
   if (cachedDb) return cachedDb
 
   const opts: MongoClientOptions = {
