@@ -17,6 +17,7 @@ export interface GameRepositoryDTO {
     age: string
   }
   spotlight_slug: string
+  created_at: number
 }
 
 type BaseCreateGameDTO = Omit<CreateGameDTO, 'rating_id'>
@@ -24,4 +25,5 @@ type BaseCreateGameDTO = Omit<CreateGameDTO, 'rating_id'>
 export interface CreateGameRepositoryDTO extends BaseCreateGameDTO {
   rating_id: ObjectId
   _id: ObjectId
+  created_at: number
 }

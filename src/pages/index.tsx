@@ -25,7 +25,11 @@ const HomePage: FC<HomePageProps> = (props) => {
       rating_id: data.rating,
     }
 
-    const response = await fetch(`${window.location.href}/api/games`, {
+    const baseUrl = window.location.href.endsWith('/')
+      ? window.location.href.substr(0, window.location.href.length - 1)
+      : window.location.href
+
+    const response = await fetch(`${baseUrl}/api/games`, {
       method: 'POST',
       body: JSON.stringify(requestData),
     })

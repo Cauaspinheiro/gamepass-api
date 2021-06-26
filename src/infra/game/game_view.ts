@@ -1,8 +1,9 @@
 import Game from 'domain/game'
 
-export interface GameViewDTO
-  extends Omit<Game, 'ratingReasons' | 'spotlightSlug'> {
+type GameViewExclusions = 'ratingReasons' | 'createdAt' | 'spotlightSlug'
+export interface GameViewDTO extends Omit<Game, GameViewExclusions> {
   rating_reasons: Array<string>
+  created_at: number
   spotlight_slug: string
 }
 
@@ -18,6 +19,7 @@ export default class GameView {
       size: game.size,
       title: game.title,
       trailer: game.trailer,
+      created_at: game.createdAt,
       spotlight_slug: game.spotlightSlug,
     }
   }
