@@ -10,8 +10,6 @@ export default class Game {
   ratingReasons: Array<string>
   size: string
   publisher: string
-  spotlightSlug: string
-  createdAt: number
 
   constructor(props: Game) {
     this.id = props.id
@@ -23,7 +21,5 @@ export default class Game {
     this.ratingReasons = props.ratingReasons
     this.size = props.size
     this.publisher = props.publisher
-    this.spotlightSlug = props.spotlightSlug
-    this.createdAt = props.createdAt
   }
 }

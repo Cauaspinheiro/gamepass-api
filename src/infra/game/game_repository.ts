@@ -1,6 +1,6 @@
 import { Collection, ObjectId } from 'mongodb'
 
-import BaseRepository from 'infra/shared/base_repository'
+import BaseRepository, { PaginationOpts } from 'infra/shared/base_repository'
 
 import {
   CreateGameRepositoryDTO,
@@ -12,12 +12,12 @@ export default class GameRepository extends BaseRepository {
     return this.getCollectionByName('games_view')
   }
 
-  static async findAll(): Promise<GameRepositoryDTO[]> {
-    const gamesCollection = await this.getCollection()
+  static async findAll(props?: PaginationOpts): Promise<GameRepositoryDTO[]> {
+    const collection = await GameRepository.getCollection()
 
-    const games = await gamesCollection.find().toArray()
+    const cursor = this.paginated(collection, props)
 
-    return games
+    return cursor.toArray()
   }
 
   static async findById(id: ObjectId): Promise<GameRepositoryDTO> {

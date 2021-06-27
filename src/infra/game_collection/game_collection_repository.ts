@@ -1,13 +1,8 @@
 import { Collection, ObjectId } from 'mongodb'
 
-import BaseRepository from 'infra/shared/base_repository'
+import BaseRepository, { PaginationOpts } from 'infra/shared/base_repository'
 
 import GameCollectionRepositoryDTO from './game_collection_repository_dto'
-
-export interface GameCollectionRepositoryFindAllProps {
-  page?: number
-  max?: number
-}
 
 export default class GameCollectionRepository extends BaseRepository {
   private static async getCollection(): Promise<Collection> {
@@ -15,19 +10,13 @@ export default class GameCollectionRepository extends BaseRepository {
   }
 
   static async findAll(
-    props?: GameCollectionRepositoryFindAllProps
+    props?: PaginationOpts
   ): Promise<GameCollectionRepositoryDTO[]> {
     const collection = await GameCollectionRepository.getCollection()
 
-    const cursor = collection.find()
+    const cursor = this.paginated(collection, props)
 
-    const page = props?.page || 0
-
-    if (props?.max) cursor.skip(page * props.max).limit(props.max)
-
-    const gameCollections = await cursor.toArray()
-
-    return gameCollections
+    return cursor.toArray()
   }
 
   static async findById(id: ObjectId): Promise<GameCollectionRepositoryDTO> {

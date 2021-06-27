@@ -22,8 +22,6 @@ export default class GameModel extends BaseModel {
       size: data.size,
       title: data.title,
       trailer: data.trailer,
-      spotlightSlug: data.spotlight_slug,
-      createdAt: data.created_at,
     })
   }
 
@@ -32,7 +30,6 @@ export default class GameModel extends BaseModel {
       ...data,
       rating_id: new ObjectId(data.rating_id),
       _id: new ObjectId(),
-      created_at: new Date().getTime(),
     }
   }
 }

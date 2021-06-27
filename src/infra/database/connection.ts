@@ -24,7 +24,7 @@ export default async function connectToDatabase(): Promise<Db> {
     useUnifiedTopology: true,
   }
 
-  const client = await MongoClient.connect(MONGODB_URI, opts)
+  const client = await MongoClient.connect(MONGODB_URI as string, opts)
 
   cachedDb = client.db(MONGODB_DB)
 

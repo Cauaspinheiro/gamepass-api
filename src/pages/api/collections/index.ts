@@ -1,6 +1,6 @@
 import { NextApiHandler } from 'next'
 
-import GetGameCollectionsUseCase from 'app/games_list/get_game_collections'
+import GetGameCollectionsUseCase from 'app/game_collection/get_game_collections'
 import GameCollectionView from 'infra/game_collection/game_collection_view'
 
 const GameCollectionsRequestHandler: NextApiHandler = async (req, res) => {
