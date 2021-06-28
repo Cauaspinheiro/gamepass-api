@@ -21,6 +21,7 @@ const HomePage: FC<HomePageProps> = (props) => {
 
     const requestData: CreateGameDTO = {
       ...data,
+      publisher: data.publisher.trim(),
       rating_reasons: ratingsReasons,
       rating_id: data.rating,
     }

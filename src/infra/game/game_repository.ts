@@ -9,7 +9,7 @@ import {
 
 export default class GameRepository extends BaseRepository {
   private static getCollection(): Promise<Collection> {
-    return this.getCollectionByName('games_view')
+    return this.getCollectionByName('games_by_title_view')
   }
 
   static async findAll(props?: PaginationOpts): Promise<GameRepositoryDTO[]> {

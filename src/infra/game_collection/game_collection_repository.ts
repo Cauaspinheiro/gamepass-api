@@ -12,18 +12,20 @@ export default class GameCollectionRepository extends BaseRepository {
   static async findAll(
     props?: PaginationOpts
   ): Promise<GameCollectionRepositoryDTO[]> {
-    const collection = await GameCollectionRepository.getCollection()
+    const collection = await this.getCollection()
 
     const cursor = this.paginated(collection, props)
 
-    return cursor.toArray()
+    const data = await cursor.toArray()
+
+    return data.map((collection) => this.sortCollectionGames(collection))
   }
 
   static async findById(id: ObjectId): Promise<GameCollectionRepositoryDTO> {
     const collection = await GameCollectionRepository.getCollection()
 
-    const GameCollection = await collection.findOne({ _id: id })
+    const data = await collection.findOne({ _id: id })
 
-    return GameCollection
+    return this.sortCollectionGames(data)
   }
 }

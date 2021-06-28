@@ -12,6 +12,8 @@ export default class SpotlightCollectionRepository extends BaseRepository {
   static async findAll(): Promise<SpotlightCollectionRepositoryDTO[]> {
     const collection = await this.getCollection()
 
-    return collection.find().toArray()
+    const data = await collection.find().toArray()
+
+    return data.map((value) => this.sortCollectionGames(value))
   }
 }
