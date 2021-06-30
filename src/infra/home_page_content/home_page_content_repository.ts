@@ -22,7 +22,7 @@ export default class HomePageContentRepository extends BaseRepository {
   }
 
   private static async getGames(): Promise<GameRepositoryDTO[]> {
-    return GameRepository.findAll({ max: 9 })
+    return GameRepository.findAll()
   }
 
   static async getHomePageContent(): Promise<HomePageContentRepositoryDTO> {
