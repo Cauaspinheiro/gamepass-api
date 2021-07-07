@@ -16,6 +16,8 @@ You can use the official API on the following URL: https://gamepass-api.vercel.a
 
 You can download the Insomnia project with all the API endpoints by clicking on the button below.
 
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Gamepass%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FCauaspinheiro%2Fgamepass-api%2Fmain%2F.github%2Finsomnia.yaml)
+
 ## :page_facing_up: About the Project
 
 ### Available Languages
