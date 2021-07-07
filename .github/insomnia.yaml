@@ -1,0 +1,191 @@
+_type: export
+__export_format: 4
+__export_date: 2021-07-07T20:33:35.948Z
+__export_source: insomnia.desktop.app:v2021.4.0
+resources:
+  - _id: req_75d20e3dc6c74479ab485e9296d0ddb8
+    parentId: fld_4bf5cc0222cd462a9e63a3d793258994
+    modified: 1624749728470
+    created: 1624749655982
+    url: "{{ _.host }}/spotlights"
+    name: Index
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1624749655982
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_4bf5cc0222cd462a9e63a3d793258994
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624749653729
+    created: 1624749644550
+    name: Spotlight Collection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624749644550
+    _type: request_group
+  - _id: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    parentId: null
+    modified: 1624722278911
+    created: 1624722278911
+    name: Gamepass
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_912fa94d78684f40a8f48dd3ca34edb1
+    parentId: fld_8e1426cd649e48d89afc89c6d1a99301
+    modified: 1624739834383
+    created: 1624739830795
+    url: "{{ _.host }}/games"
+    name: Index
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1624739830795
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8e1426cd649e48d89afc89c6d1a99301
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624739828078
+    created: 1624739828078
+    name: Game
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624739828078
+    _type: request_group
+  - _id: req_6e8d7db08f894f698f014cc200f1cf04
+    parentId: fld_bf009320002649abb4fb7b744992f613
+    modified: 1624912906883
+    created: 1624722383014
+    url: "{{ _.host }}/collections"
+    name: Index
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: page
+        value: "2"
+        description: ""
+        id: pair_08f9df5f9b50434a841354f4c0a95664
+        disabled: true
+      - name: max
+        value: "2"
+        description: ""
+        id: pair_5e7513f4e2604d01bd29347cf4c6123d
+        disabled: true
+    headers: []
+    authentication: {}
+    metaSortKey: -1624722383014
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_bf009320002649abb4fb7b744992f613
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624741271301
+    created: 1624722373069
+    name: Game Collection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624735644925
+    _type: request_group
+  - _id: req_63d4c84e1c0d4533bce2d770e0d34080
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624731468557
+    created: 1624731461771
+    url: "{{ _.host }}/content/home"
+    name: Home Page Content
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1624731461772
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_288a2080e866fc2330b13a9635f8ecdc688fcd0f
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624722285891
+    created: 1624722279247
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1624722279247
+    _type: environment
+  - _id: jar_288a2080e866fc2330b13a9635f8ecdc688fcd0f
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624722279270
+    created: 1624722279270
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_6c2147efaae74e6499145a0b4bac7f9d
+    parentId: wrk_690e5ab4ba8d4b4d81b07022b8d937e2
+    modified: 1624722278920
+    created: 1624722278920
+    fileName: Gamepass
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_a9b59880e5314756acb14f95b801a86e
+    parentId: env_288a2080e866fc2330b13a9635f8ecdc688fcd0f
+    modified: 1624722364425
+    created: 1624722296734
+    name: DEV
+    data:
+      host: http://localhost:3000/api
+    dataPropertyOrder:
+      "&":
+        - host
+    color: "#03cc00"
+    isPrivate: false
+    metaSortKey: 1624722296734
+    _type: environment
+  - _id: env_2ea4acbe1fcc4c688df13111bd7689d4
+    parentId: env_288a2080e866fc2330b13a9635f8ecdc688fcd0f
+    modified: 1624756671363
+    created: 1624756640576
+    name: PROD
+    data:
+      host: https://gamepass-api.vercel.app/api
+    dataPropertyOrder:
+      "&":
+        - host
+    color: "#d60000"
+    isPrivate: false
+    metaSortKey: 1624756640577
+    _type: environment
