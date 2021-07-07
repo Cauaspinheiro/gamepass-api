@@ -20,7 +20,7 @@ You can download the Insomnia project with all the API endpoints by clicking on 
 
 ### Available Languages
 
-The project is written entirely in English, but the official application content supports only the Brazilian Portuguese language.
+The project is written entirely in English, but the official application content supports only the ![BR flag](.github/BR.png) Brazilian Portuguese language.
 
 ### Motivation
 
@@ -42,35 +42,35 @@ This project is licensed under the [MIT License](LICENSE)
 
 ### Next.js
 
-Project tool description template
+Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed. (Official Website)
 
-Link: some link
+Website: https://nextjs.org/
 
 ### Typescript
 
-Project tool description template
+TypeScript is an open-source language which builds on JavaScript, one of the world’s most used tools, by adding static type definitions. (Official Website)
 
-Link: some link
+Website: https://www.typescriptlang.org/
 
 ### Mongo DB
 
-Project tool description template
+MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. (Official Website)
 
-Link: some link
+Website: https://www.mongodb.com/
 
 ### Dependencies
 
 #### mongodb
 
-Dependency description template
+The official MongoDB driver for Node.js. (Official repository)
 
-link: some link
+Github: https://github.com/mongodb/node-mongodb-native
 
 #### eslint
 
-Dependency description template
+ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
-link: some link
+Github: https://github.com/eslint/eslint
 
 ## :construction_worker: Installation
 
@@ -78,11 +78,15 @@ link: some link
 
 You go need these tools to install this repository on your local machine:
 
-- Git
-- Node
-- MongoDB Atlas
+- Git -> https://git-scm.com/downloads
+- Node -> https://nodejs.org/en/
 
 After you install all these tools up head, you can proceed to the next topic.
+
+### MongoDB Atlas Setup
+
+- Create a project on MongoDB Atlas -> https://www.mongodb.com/cloud/atlas
+- Setup your cluster and copy your connection string -> https://codeforgeek.com/mongodb-atlas-node-js/
 
 ### Running Locally
 
@@ -108,13 +112,45 @@ You can install the project's dependencies by running the following command insi
 npm install
 ```
 
+#### Env setup
+
+Rename the file `.env.example` to `.env.local` and replace the following options
+
+`YOUR_CONNECTION_STRING` to your connection string that you got on the [MongoDB Atlas Setup Topic](#mongodb-atlas-setup)
+
+`YOUR_DATABASE` to your database name. You can use `gamepass` by default.
+
 ---
 
 **That's it!** Now you can run the project on your local machine.
 
 To see witch scripts are available for use, go to the [Scripts Section](#scripts)
 
-## Scripts
+## :joystick: Scripts
+
+### dev
+
+```bash
+npm run dev
+```
+
+Starts the development server at `http://localhost:3000`
+
+### build
+
+```bash
+npm run build
+```
+
+Build a Next.js production server
+
+### start
+
+```bash
+npm run start
+```
+
+Start a Next.js production server
 
 ## :link: Useful Links
 
