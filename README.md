@@ -130,7 +130,7 @@ Rename the file `.env.example` to `.env.local` and replace the following options
 
 **That's it!** Now you can run the project on your local machine.
 
-To see witch scripts are available for use, go to the [Scripts Section](#scripts)
+To see witch scripts are available for use, go to the [Scripts Section](#joystick-scripts)
 
 ## :joystick: Scripts
 
