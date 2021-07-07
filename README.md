@@ -1,4 +1,4 @@
-<!-- Headers -->
+![Xbox Game Pass](.github/cover.png)
 
 # Xbox Game Pass API
 
@@ -8,7 +8,11 @@ An API to provide the [Xbox Game Pass](https://www.xbox.com/en-us/xbox-game-pass
 
 > This API was not built and maintained to support third-party usage. If you need a real API to get all the latest games you will not find here.
 
-<!-- Prints / Outputs -->
+## :sparkles: Outputs
+
+### Game JSON
+
+![Game JSON](.github/game.png)
 
 ## :video_game: Usage
 
