@@ -63,8 +63,7 @@ Contains all the stylization (CSS) of the project.
 
 ## `package.json` - Flutter configuration file
 
-Contains all the necessary configuration for Flutter and its dependencies. All the possible options are on the [official documentation](https://flutter.dev/docs/development/tools/pubspec).
-`
+Contains all the necessary configuration for Node and its dependencies. All the possible options are on the [official documentation](https://nodejs.dev/learn/the-package-json-guide).
 
 ## `.eslintrc` - Eslint configuration file
 
